@@ -1,0 +1,13 @@
+{
+    "model": "PubMedBERT",
+    "precision": 0.8247588424437299,
+    "recall": 0.824317086234601,
+    "f1_score": 0.8245379051701045,
+    "accuracy": 0.9779220437879464,
+    "Chemical_precision": 0.9044943820224719,
+    "Chemical_recall": 0.8712121212121212,
+    "Chemical_f1": 0.8875413450937156,
+    "Disease_precision": 0.7520491803278688,
+    "Disease_recall": 0.7783669141039237,
+    "Disease_f1": 0.7649817613340282
+}

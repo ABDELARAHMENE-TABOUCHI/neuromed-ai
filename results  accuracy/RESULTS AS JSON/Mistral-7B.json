@@ -1,0 +1,15 @@
+{
+    "model": "Mistral-7B",
+    "precision": 0.8051948051948052,
+    "recall": 0.3583815028901734,
+    "f1_score": 0.496,
+    "accuracy": 0.9512628957666311,
+    "Chemical_precision": 0.7948717948717948,
+    "Chemical_recall": 0.46827794561933533,
+    "Chemical_f1": 0.5893536121673004,
+    "Chemical_support": 331,
+    "Disease_precision": 0.8230088495575221,
+    "Disease_recall": 0.25761772853185594,
+    "Disease_f1": 0.39240506329113917,
+    "Disease_support": 361
+}

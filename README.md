@@ -14,9 +14,18 @@
 
 ![Git LFS](https://img.shields.io/badge/Git_LFS-Enabled-F05032?style=for-the-badge&logo=git&logoColor=white)
 
-![Status](https://img.shields.io/badge/Status-Completed-22C55E?style=for-the-badge)
+![Status](https://img.shields.io/badge/Status-Deployed-22C55E?style=for-the-badge)
 
 ---
+
+![ONNX](https://img.shields.io/badge/ONNX-INT8-005CED?style=for-the-badge&logo=onnx)
+![Vercel](https://img.shields.io/badge/Vercel-Live-000000?style=for-the-badge&logo=vercel)
+
+## 🚀 Live Demo
+
+**[Launch NeuroMed AI — Live Research Studio](https://neuromed-ai-sigma.vercel.app)**
+
+The application is deployed on Vercel (Hobby plan). All three inference models and printed/handwritten OCR were reported working in post-deployment tests. Use synthetic or public example text only; do not upload confidential patient data.
 
 ## 🌐 Project Overview
 
@@ -95,7 +104,7 @@ All screenshots illustrate application behavior using example biomedical text ra
 | Frontend | Interactive Research Studio |
 | Model Distribution | Git LFS |
 | Evaluation Results | CSV and JSON |
-| Application Availability | Local execution |
+| Application Availability | Live on Vercel and local execution |
 
 ## 🎯 Research Objectives
 
@@ -269,12 +278,28 @@ The evaluation resources are available in:
 
 The experimental notebooks provide additional resources for understanding the training and comparison workflows.
 
+## ⚡ Model Optimization & Cloud Deployment
+
+The production backend uses dynamically quantized INT8 ONNX versions of BioLinkBERT and PubMedBERT, while retaining the PyTorch BiLSTM-CRF and OCR pipeline.
+
+| Model | FP32 ONNX (MiB) | INT8 ONNX (MiB) |
+|---|---:|---:|
+| BioLinkBERT | 410.86 | 103.41 |
+| PubMedBERT | 415.62 | 104.60 |
+| **Total** | **826.48** | **208.01** |
+
+The combined model size decreased by approximately **74.83%**. Local process memory measurements decreased from approximately 2,134 MiB to 497 MiB in the observed tests; these are not cloud memory benchmarks. Token predictions matched on one conversion test sentence, which does not establish benchmark-wide accuracy equivalence.
+
+Production configuration: Python 3.12, FastAPI, ONNX Runtime, Git LFS enabled, and `vercel-deploy` as the Vercel root directory. The Large Functions configuration allowed the build to pass the initial 500 MB bundle limit. Cloud load testing and broader quantization evaluation remain future work.
+
 ## 🛠️ Technology Stack
 
 | Layer | Technologies |
 |---|---|
 | Programming Languages | Python, JavaScript |
 | Deep Learning | PyTorch |
+| Optimized Inference | ONNX Runtime, INT8 quantization |
+| Cloud Deployment | Vercel |
 | Neural Architectures | BiLSTM, CRF, Transformers |
 | Natural Language Processing | Hugging Face Transformers |
 | Backend | FastAPI, Uvicorn |
@@ -345,6 +370,21 @@ neuromed-ai/
 │   ├── tag2idx.pkl
 │   └── idx2tag.pkl
 │
+├── vercel-deploy/
+│   ├── app.py
+│   ├── index.html
+│   ├── requirements.txt
+│   ├── .python-version
+│   ├── model.pth
+│   ├── word2idx.pkl
+│   ├── tag2idx.pkl
+│   ├── idx2tag.pkl
+│   └── onnx_models/
+│       ├── biolinkbert_int8.onnx
+│       ├── pubmedbert_int8.onnx
+│       ├── biolinkbert_tokenizer/
+│       └── pubmedbert_tokenizer/
+│
 ├── .gitattributes
 ├── .gitignore
 ├── README.md
@@ -369,6 +409,16 @@ Large files are managed using Git Large File Storage (Git LFS).
 The initial publication successfully transferred approximately 883 MB of Git LFS objects, including model and dataset resources.
 
 ## 🚀 Installation and Getting Started
+
+For the optimized production version, clone the repository with Git LFS, create and activate a Python 3.12 virtual environment as described below, then run:
+
+```bash
+cd vercel-deploy
+python -m pip install -r requirements.txt
+python app.py
+```
+
+Open http://127.0.0.1:8001. The following steps also document the original research version.
 
 ### Prerequisites
 
@@ -508,11 +558,15 @@ Exact reproduction of training results may depend on package versions, hardware,
 
 - [x] Complete GitHub repository publication.
 
+- [x] INT8 ONNX conversion of both BERT models.
+- [x] Vercel production deployment.
+- [x] Post-deployment functional testing.
+
 ## 🔮 Future Perspectives
 
 The core project is completed. Potential research extensions include:
 
-- Public cloud deployment of the interactive application.
+- Cloud performance and load testing.
 
 - Biomedical relation extraction.
 
@@ -522,11 +576,13 @@ The core project is completed. Potential research extensions include:
 
 - Multilingual biomedical NLP.
 
-- Model compression and inference optimization.
+- Further model compression and inference optimization.
 
 - Expanded experimental benchmarking.
 
 ## ⚠️ Research Disclaimer
+
+The public demo is not intended for confidential medical records or personal health information.
 
 NeuroMed AI is an educational and research-oriented platform.
 

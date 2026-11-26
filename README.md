@@ -3,11 +3,17 @@
 **An interactive biomedical intelligence platform powered by Deep Learning, Natural Language Processing and Biomedical Transformers.**
 
 ![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
+
 ![PyTorch](https://img.shields.io/badge/PyTorch-EE4C2C?style=for-the-badge&logo=pytorch&logoColor=white)
+
 ![FastAPI](https://img.shields.io/badge/FastAPI-009688?style=for-the-badge&logo=fastapi&logoColor=white)
+
 ![NLP](https://img.shields.io/badge/NLP-Transformers-8B5CF6?style=for-the-badge)
+
 ![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
+
 ![Git LFS](https://img.shields.io/badge/Git_LFS-Enabled-F05032?style=for-the-badge&logo=git&logoColor=white)
+
 ![Status](https://img.shields.io/badge/Status-Completed-22C55E?style=for-the-badge)
 
 ---
@@ -19,6 +25,60 @@ NeuroMed AI is an end-to-end biomedical Natural Language Processing platform des
 The platform integrates three trained deep learning architectures within an interactive research environment, bridging biomedical NLP, experimental research, data visualization and modern software engineering.
 
 The repository includes the complete application source code, trained model artifacts, datasets, experimental notebooks and evaluation results.
+
+## 📸 Application Preview
+
+### 1. Research Studio Overview
+
+The interactive landing page introduces the biomedical NLP workspace and its molecular-inspired visualization.
+
+![NeuroMed AI overview](screenshots/overview.png)
+
+### 2. Biomedical Text Analysis
+
+Enter biomedical text or import a document, then run all three integrated models on the same source.
+
+![Analysis Studio](screenshots/analysis-studio.png)
+
+### 3. Named Entity Recognition
+
+Explore color-coded chemical and disease predictions, switch between models, filter entities and export results.
+
+![Entity Explorer](screenshots/entity-explorer.png)
+
+### 4. Interactive Spatial Entity Atlas
+
+Explore predicted entities through an interactive spatial visualization. Groups indicate category membership, not verified biomedical relationships.
+
+![Spatial Entity Atlas](screenshots/entity-atlas.png)
+
+### 5. Neural Model Comparison
+
+Compare predicted entity counts and annotated text side by side.
+
+![Model Comparison](screenshots/model-comparison.png)
+
+| Model | Chemical mentions | Disease mentions | Total |
+|---|---:|---:|---:|
+| BiLSTM-CRF | 4 | 4 | 8 |
+| BioLinkBERT | 6 | 7 | 13 |
+| PubMedBERT | 6 | 7 | 13 |
+
+### 6. Cross-Model Agreement
+
+The agreement matrix uses Jaccard similarity over unique predicted entity text and category pairs. For this demonstration, BioLinkBERT and PubMedBERT agree on 100% of their predicted entities, while BiLSTM-CRF shares approximately 62% agreement with each Transformer model.
+
+![Cross-Model Agreement](screenshots/agreement-matrix.png)
+
+These figures describe a single demonstration, not benchmark accuracy or clinical validity.
+
+### 7. Biomedical Entity Inventory
+
+Inspect structured entity names, categories and mention counts, with CSV and JSON export options.
+
+![Data Inventory](screenshots/inventory.png)
+
+All screenshots illustrate application behavior using example biomedical text rather than patient records.
 
 ## 📊 Project at a Glance
 
@@ -40,11 +100,17 @@ The repository includes the complete application source code, trained model arti
 ## 🎯 Research Objectives
 
 - Extract chemical and disease entities from biomedical documents.
+
 - Investigate recurrent and Transformer-based neural architectures.
+
 - Compare model predictions and experimental performance.
+
 - Explore cross-model agreement and entity distributions.
+
 - Transform unstructured biomedical text into structured information.
+
 - Integrate trained NLP models into a functional research application.
+
 - Support experimental reproducibility through datasets, notebooks and evaluation results.
 
 ## ✨ Key Features
@@ -55,7 +121,6 @@ The repository includes the complete application source code, trained model arti
 | Multi-model Analysis | Simultaneous analysis using three trained architectures |
 | Interactive 3D Visualizations | Rotatable and zoomable scientific illustrations |
 | Spatial Entity Atlas | Interactive exploration of detected biomedical entities |
-| Architecture Lab | Educational visualization of neural NLP pipelines |
 | Agreement Matrix | Cross-model comparison using Jaccard similarity |
 | OCR Integration | Printed and handwritten text extraction |
 | Research Analytics | Dynamic charts and entity distributions |
@@ -71,9 +136,13 @@ The repository includes the complete application source code, trained model arti
 A recurrent neural architecture combining:
 
 - Word embeddings.
+
 - Bidirectional Long Short-Term Memory networks.
+
 - Conditional Random Fields.
+
 - Structured BIO sequence labeling.
+
 - Viterbi decoding.
 
 This architecture captures sequential context and dependencies between predicted entity labels.
@@ -83,8 +152,11 @@ This architecture captures sequential context and dependencies between predicted
 A biomedical Transformer architecture adapted to named entity recognition.
 
 - Contextual token representations.
+
 - Biomedical domain knowledge.
+
 - Transformer-based token classification.
+
 - Chemical and disease entity recognition.
 
 ### 3. PubMedBERT
@@ -92,8 +164,11 @@ A biomedical Transformer architecture adapted to named entity recognition.
 A domain-specific Transformer pretrained on biomedical literature.
 
 - Biomedical contextual representations.
+
 - Domain-specific vocabulary.
+
 - Fine-tuning for biomedical NER.
+
 - Context-aware entity classification.
 
 ### 4. Mistral-7B — Experimental Evaluation
@@ -113,9 +188,13 @@ The repository contains raw, cleaned and BIO-formatted dataset resources.
 ### Dataset Organization
 
 - Training dataset.
+
 - Validation dataset.
+
 - Testing dataset.
+
 - Cleaned biomedical text.
+
 - BIO-formatted annotations.
 
 ### BIO Labeling Scheme
@@ -134,20 +213,16 @@ The repository contains raw, cleaned and BIO-formatted dataset resources.
 flowchart TD
     A[Biomedical Text or Image] --> B[Text Processing and OCR]
     B --> C[FastAPI Backend]
-
     C --> D[BiLSTM-CRF]
     C --> E[BioLinkBERT]
     C --> F[PubMedBERT]
-
     D --> G[Biomedical Entity Extraction]
     E --> G
     F --> G
-
     G --> H[Cross-Model Comparison]
     H --> I[Research Analytics]
     H --> J[Entity Explorer]
     H --> K[Structured Data Export]
-
     I --> L[Interactive Research Studio]
     J --> L
     K --> L
@@ -171,10 +246,6 @@ Interactive biomedical annotations and spatial entity exploration.
 
 Comparative analysis of neural predictions, entity distributions and model agreement.
 
-### Architecture Lab
-
-Educational visualization of recurrent neural networks and Transformer architectures.
-
 ### Data Inventory
 
 Structured entity management, filtering, searching and data export.
@@ -193,6 +264,7 @@ The repository includes experimental results for the following models:
 The evaluation resources are available in:
 
 - `results  accuracy/RESULTS AS CSV/`
+
 - `results  accuracy/RESULTS AS JSON/`
 
 The experimental notebooks provide additional resources for understanding the training and comparison workflows.
@@ -254,6 +326,15 @@ neuromed-ai/
 │       ├── PubMedBERT.json
 │       └── Mistral-7B.json
 │
+├── screenshots/
+│   ├── overview.png
+│   ├── analysis-studio.png
+│   ├── entity-explorer.png
+│   ├── entity-atlas.png
+│   ├── model-comparison.png
+│   ├── agreement-matrix.png
+│   └── inventory.png
+│
 ├── UI INTERFACE/
 │   ├── app.py
 │   ├── index.html
@@ -292,9 +373,13 @@ The initial publication successfully transferred approximately 883 MB of Git LFS
 ### Prerequisites
 
 - Python.
+
 - Git.
+
 - Git LFS.
+
 - Sufficient memory and disk space for the trained models.
+
 - Internet access for downloading the repository and additional pretrained resources.
 
 ### 1. Configure Git LFS
@@ -374,12 +459,19 @@ uvicorn app:app --host 127.0.0.1 --port 8000
 The repository provides the resources necessary to explore the experimental workflow:
 
 - Raw and preprocessed biomedical datasets.
+
 - BIO sequence-labeling resources.
+
 - Model training notebooks.
+
 - Trained neural model artifacts.
+
 - Comparative evaluation notebooks.
+
 - Experimental results in CSV and JSON formats.
+
 - Integrated inference backend.
+
 - Interactive research frontend.
 
 Exact reproduction of training results may depend on package versions, hardware, random seeds and training configurations.
@@ -387,19 +479,33 @@ Exact reproduction of training results may depend on package versions, hardware,
 ## ✅ Project Completion
 
 - [x] Biomedical dataset preprocessing.
+
 - [x] BIO sequence labeling.
+
 - [x] BiLSTM-CRF implementation and training.
+
 - [x] BioLinkBERT fine-tuning.
+
 - [x] PubMedBERT fine-tuning.
+
 - [x] LLM experimental evaluation.
+
 - [x] Comparative model analysis.
+
 - [x] FastAPI backend development.
+
 - [x] Interactive research interface.
+
 - [x] OCR integration.
+
 - [x] Research analytics and visualizations.
+
 - [x] CSV and JSON export.
+
 - [x] Publication of trained model artifacts.
+
 - [x] Publication of datasets and notebooks.
+
 - [x] Complete GitHub repository publication.
 
 ## 🔮 Future Perspectives
@@ -407,11 +513,17 @@ Exact reproduction of training results may depend on package versions, hardware,
 The core project is completed. Potential research extensions include:
 
 - Public cloud deployment of the interactive application.
+
 - Biomedical relation extraction.
+
 - Additional biomedical entity categories.
+
 - Advanced document processing.
+
 - Multilingual biomedical NLP.
+
 - Model compression and inference optimization.
+
 - Expanded experimental benchmarking.
 
 ## ⚠️ Research Disclaimer

@@ -1,0 +1,11 @@
+fastapi
+uvicorn
+python-multipart
+numpy==2.4.6
+onnxruntime==1.32.0
+tokenizers
+transformers==5.9.0
+pillow
+--extra-index-url https://download.pytorch.org/whl/cpu
+torch==2.12.0+cpu
+pytorch-crf==0.7.2
